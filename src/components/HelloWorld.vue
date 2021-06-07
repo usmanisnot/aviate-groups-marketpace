@@ -23,6 +23,7 @@ import { useStore, createNamespacedHelpers } from 'vuex';
 import { computed, defineComponent, onMounted, ref } from 'vue';
 import CountryService from '../services/CountryService';
 import {FilterService,FilterMatchMode} from 'primevue/api';
+import AutoComplete from 'primevue/autocomplete';
 
 const { mapState, mapActions } = createNamespacedHelpers('Title')
 // import store from "../store/index"
@@ -31,6 +32,9 @@ export default defineComponent({
   name: 'HelloWorld',
   props: {
     msg: String,
+  },
+  components: {
+    AutoComplete
   },
   setup(){
     const store = useStore();
