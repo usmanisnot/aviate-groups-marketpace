@@ -12,12 +12,17 @@
     <button @click="setTitle">set new title</button>
 
     <button @click="updateTitle">Update title from API</button>
+
+    <AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" field="name" />
+
   </div>
 </template>
 
 <script lang="ts">
 import { useStore, createNamespacedHelpers } from 'vuex';
-import { computed, defineComponent, onMounted } from 'vue';
+import { computed, defineComponent, onMounted, ref } from 'vue';
+import CountryService from '../services/CountryService';
+import {FilterService,FilterMatchMode} from 'primevue/api';
 
 const { mapState, mapActions } = createNamespacedHelpers('Title')
 // import store from "../store/index"
@@ -37,9 +42,30 @@ export default defineComponent({
       store.dispatch("Title/updateTitle")
     }
 
-    onMounted(()=> updateTitle())
-    
+    onMounted(()=> {
+      updateTitle();
+      countryService.value.getCountries().then((data: any) => countries.value = data);
+      console.log("onMounted: ", countries);
+    })
+
+    const countries = ref();
+        const countryService = ref(new CountryService());
+        const selectedCountry1 = ref();
+        const selectedCountry2 = ref();
+        const selectedCity = ref();
+        const filteredCities = ref();
+        const filteredCountries = ref();
+        const selectedCountries = ref([]);
+        
+        const searchCountry = (event: any) => {
+            console.log("searchCountry: ")
+        };
+        const searchCity = (event: any) => {
+            console.log("searchCity: ")
+        }
+
     return {
+      countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, searchCountry, searchCity,
       title,
       setTitle,
       updateTitle
