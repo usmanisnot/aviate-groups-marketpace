@@ -15,6 +15,7 @@
     "install": "^0.13.0",
     "json2typescript": "^1.4.1",
     "npm": "^7.16.0",
+    "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primevue": "^3.3.5",
     "superagent": "^6.1.0",

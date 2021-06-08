@@ -1,20 +1,9 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-
-    <h1>{{title}}</h1>
-
-    <button @click="setTitle">set new title</button>
+    <h1>{{title}}</h1> -->
 
     <button @click="updateTitle">Update title from API</button>
-
-    <AutoComplete v-model="selectedCountry" :suggestions="filteredCountriesBasic" @complete="searchCountry($event)" field="name" />
-
+    <button @click="updateToast">Update toast</button>
   </div>
 </template>
 
@@ -22,8 +11,7 @@
 import { useStore, createNamespacedHelpers } from 'vuex';
 import { computed, defineComponent, onMounted, ref } from 'vue';
 import CountryService from '../services/CountryService';
-import {FilterService,FilterMatchMode} from 'primevue/api';
-import AutoComplete from 'primevue/autocomplete';
+import { useToast } from "primevue/usetoast";
 
 const { mapState, mapActions } = createNamespacedHelpers('Title')
 // import store from "../store/index"
@@ -34,16 +22,21 @@ export default defineComponent({
     msg: String,
   },
   components: {
-    AutoComplete
   },
   setup(){
     const store = useStore();
+    //const toast = useToast();
+        
     const title = computed(()=> store.state.Title.title);
     const setTitle = () => {
       store.dispatch('Title/setTitle',"New app title");
     }
     const updateTitle = () => {
       store.dispatch("Title/updateTitle")
+    }
+
+    const updateToast = () =>{
+      //toast.add({severity:'info', summary: 'Info Message', detail:'Message Content', life: undefined});
     }
 
     onMounted(()=> {
@@ -72,7 +65,8 @@ export default defineComponent({
       countries, countryService, selectedCountry1, selectedCountry2, selectedCity, filteredCities, filteredCountries, selectedCountries, searchCountry, searchCity,
       title,
       setTitle,
-      updateTitle
+      updateTitle,
+      updateToast
     }
   }, 
   methods: {
