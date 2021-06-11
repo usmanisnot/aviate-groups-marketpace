@@ -5,23 +5,23 @@ import store from './store'
 import PrimeVue from 'primevue/config';
 import DemoTheme from './views/DemoTheme.vue'
 
+import "primeflex/primeflex.css";
 import "primevue/resources/primevue.min.css"                 //core css
 import "primeicons/primeicons.css"                           //icons
-
 
 // import "primevue/resources/themes/bootstrap4-light-blue/theme.css"
 // import "primevue/resources/themes/bootstrap4-light-purple/theme.css"
 // import "primevue/resources/themes/bootstrap4-dark-blue/theme.css"
 // import "primevue/resources/themes/bootstrap4-dark-purple/theme.css"
 // import "primevue/resources/themes/md-light-indigo/theme.css"
- import "primevue/resources/themes/md-light-deeppurple/theme.css"
+// import "primevue/resources/themes/md-light-deeppurple/theme.css"
 // import "primevue/resources/themes/md-dark-indigo/theme.css"
 // import "primevue/resources/themes/md-dark-deeppurple/theme.css"
 // import "primevue/resources/themes/mdc-light-indigo/theme.css"
 // import "primevue/resources/themes/mdc-light-deeppurple/theme.css"
 // import "primevue/resources/themes/mdc-dark-indigo/theme.css"
 // import "primevue/resources/themes/mdc-dark-deeppurple/theme.css"
-// import "primevue/resources/themes/fluent-light/theme.css"
+import "primevue/resources/themes/fluent-light/theme.css"
 // import "primevue/resources/themes/saga-blue/theme.css"
 // import "primevue/resources/themes/saga-green/theme.css"
 // import "primevue/resources/themes/saga-orange/theme.css"

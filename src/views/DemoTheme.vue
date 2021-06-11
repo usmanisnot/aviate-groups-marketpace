@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="DemoTheme">
         <h1>Responsive Design</h1>
         <div class="p-grid">
             <div class="p-col-12 p-md-6 p-fluid">
@@ -835,6 +835,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="less">
+
 .image-text {
     vertical-align: middle;
 }

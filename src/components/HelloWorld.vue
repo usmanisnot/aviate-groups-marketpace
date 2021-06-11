@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{title}}</h1> -->
+    <h1>{{title}}</h1>
 
     <button @click="updateTitle">Update title from API</button>
     <button @click="updateToast">Update toast</button>
@@ -26,7 +26,7 @@ export default defineComponent({
   setup(){
     const store = useStore();
     //const toast = useToast();
-        
+    
     const title = computed(()=> store.state.Title.title);
     const setTitle = () => {
       store.dispatch('Title/setTitle',"New app title");
@@ -41,8 +41,8 @@ export default defineComponent({
 
     onMounted(()=> {
       updateTitle();
-      countryService.value.getCountries().then((data: any) => countries.value = data);
-      console.log("onMounted: ", countries);
+      //countryService.value.getCountries().then((data: any) => countries.value = data);
+      //console.log("onMounted: ", countries);
     })
 
     const countries = ref();
